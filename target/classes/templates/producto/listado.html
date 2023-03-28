@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Spectrum</title>
+        <meta charset="UTF-8"/>
+        <link href="/css/styles.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header th:replace="~{layout/plantilla :: header}"/>
+        <div class="contenido">
+            <h2>Listado de Productos</h2>
+            <hr>
+            <a th:href="@{/producto/nuevo}">Nuevo Produto</a>
+
+            <div th:if="${productos !=null and !productos.empty}">
+                <table border="0">
+                    <thead>
+                        <tr>
+                            <th >Descripcion</th>
+                            <th >Detalle</th>
+                            <th >precio</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="producto : ${productos}">
+                        <td th:text="${producto.descripcion}"></td> 
+                        <td th:text="${producto.detalle}"></td> 
+                        <td th:text="${producto.precio}"></td>
+                        
+                        <td><a th:href="@{/producto/eliminar/} + ${producto.idProducto}">Eliminar</a></td>
+                        <td><a th:href="@{/producto/modificar/} + ${producto.idProducto}">Modificar</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div th:if="${productos ==null or productos.empty}">
+                <p > No hay productos que mostrar</p>
+            </div>
+        </div>
+        <footer th:replace="~{layout/plantilla :: footer}"/>
+    </body>
+</html>

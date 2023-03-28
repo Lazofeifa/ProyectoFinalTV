@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Perfil</title>
+        <meta charset="UTF-8"/>
+        <link href="/css/styles.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header th:replace="layout/plantilla :: header"/>
+        
+        <h2>Datos de Perfiles</h2>
+        <hr>
+        <a th:href="@{/perfil/listado}">Regresar</a>
+        <hr>
+        <form th:action="@{/perfil/guardar}"
+              method="post"
+              th:object="${perfil}">
+            <input type="hidden" name="idPerfil" 
+                   th:field="*{idPerfil}"/>
+            
+            <label >Usuario</label>
+            <input type="text" 
+                   name="usuario"
+                   required="true"
+                   th:field="*{usuario}"/>
+            <br>
+            
+            <label>Correo</label>
+            <input type="text" 
+                   name="correo"
+                   required="true"
+                   th:field="*{correo}"/>
+            <br>
+            
+            
+            <label>Contraseña</label>
+            <input type="text" 
+                   name="contraseña"
+                   th:field="*{contrasena}"/>
+            <br>            
+            
+            <label>Cliente</label>
+            <input type="text" 
+                   name="cliente"
+                   th:field="*{cliente.nombre}"/>
+            <br>       
+                
+            <label>Tipo de Perfil</label>
+            <input type="text" 
+                   name="tipop"
+                   th:field="*{tipop.tipoperfil}"/>
+            <br>    
+                
+                
+            <hr>
+            <input type="submit" value="Guardar" />
+            <hr/>            
+        </form>
+        
+        <footer th:replace="layout/plantilla :: footer"/>
+    </body>
+</html>
+
+
+

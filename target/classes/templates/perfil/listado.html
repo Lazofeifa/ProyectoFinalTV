@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Spectrum</title>
+        <meta charset="UTF-8"/>
+        <link href="/css/styles.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header th:replace="~{layout/plantilla :: header}"/>
+        <div class="contenido">
+            <h2>Listado de Perfiles</h2>
+            <hr>
+            <a th:text="#{perfil.nuevo}" th:href="@{/perfil/nuevo}">Nuevo perfil</a>
+
+            <div th:if="${perfiles !=null and !perfiles.empty}">
+                <table border="0">
+                    <thead>
+                        <tr>
+                            <th >Usuario</th>
+                            <th >Correo</th>
+                            <th >Contraseña</th>
+                            <th >Cliente</th>
+                            <th >Tipo Perfil</th>
+                            <th >Eliminar</th>
+                            <th >Modificar</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="perfil : ${perfiles}">
+                        <td th:text="${perfil.usuario}"></td> 
+                        <td th:text="${perfil.correo}"></td> 
+                        <td th:text="${perfil.contrasena}"></td>
+                        <td th:text="${perfil.cliente.nombre}"></td>
+                        <td th:text="${perfil.tipop.tipoperfil}"></td>
+                        
+                        
+                        <td><a th:href="@{/perfil/eliminar/} + ${perfil.idPerfil}">Eliminar</a></td>
+                        <td><a th:href="@{/perfil/modificar/} + ${perfil.idPerfil}">Modificar</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div th:if="${perfiles ==null or perfiles.empty}">
+                <p > No hay clientes que mostrar</p>
+            </div>
+        </div>
+        <footer th:replace="~{layout/plantilla :: footer}"/>
+    </body>
+</html>
