@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head>
+        <title>Spectrum</title>
+        <meta charset="UTF-8"/>
+        <link href="/css/styles.css" rel="stylesheet" type="text/css"/> </head>
+        <style>
+        .contenedorIndex {
+            display: flex;
+            justify-content: center;
+            color: #024070;
+        }
+        
+        </style>
+    <body>
+        <header th:replace="layout/plantilla :: header"/>
+        <div >
+            <ul class="navbar-nav" sec:authorize="!isAuthenticated()">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/login}"><i class="fas fa-sign-in-alt">Login</i></a>
+                </li>    
+            </ul> 
+            
+            <div class="contenedorIndex" align="center" >
+                <h4> Autogestión de servicios </h4> 
+                    <p> <img  src="https://res.cloudinary.com/uvggt/image/upload/f_auto/v1622486553/2021/Mayo/Historia%20del%20Internet/historia_internet_gt.jpg" alt="" style=" width:49%;  "/></p>
+                <h4> Servicios de internet</h4> 
+                    <p> <img src="https://internetparaguay.com/wp-content/uploads/2020/09/hombre-joven-ordenador-portatil-telefono_171337-16299.jpg" alt="" style=" width:55%; "/></p>
+           
+            </div>
+            <div  class="contenedorIndex" align="center">
+                <h4> Servicios de TV </h4> 
+                    <p> <img src="https://static-prod.adweek.com/wp-content/uploads/2020/11/home-tv-usage-work-students-CONTENT-2020.jpg" alt="" style=" width:48%; "/></p>
+                <h4> Perfil de cliente</h4> 
+                    <p> <img src="https://i0.wp.com/tecnolikeplus.com/wp-content/uploads/2020/09/control-television-por-cable-radio-habana-cuba.jpg?fit=1024%2C576&ssl=1" alt="" style=" width:55%; "/></p>
+            </div>
+            
+            
+
+            
+        </div>
+        <footer th:replace="layout/plantilla :: footer"/>
+    </body>
+</html>
