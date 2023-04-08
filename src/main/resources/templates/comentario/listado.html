@@ -11,55 +11,9 @@
     </head>
     <body>
         <header th:replace="~{layout/plantilla :: header}"/>
-        <div class="contenido">
-            <h2>Comenarios</h2>
-            <hr>
-            <a type="button" class="btn btn-primary" th:href="@{/comentario/nuevo}">Nuevo comentario</a>
-            <hr>
-            <div th:if="${comentarios !=null and !comentarios.empty}">
-                <table border="0">
-                    <thead>
-
-                    </thead>
-                    <tbody>
-      
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-                        <div class="container-fluid">
-	<div class="row">
-		<div class="col-md-12">
-			<table class="table">
-				<thead class="table-active">
-                                   
-	                        <tr>
-                            <th >Detalle</th>
-                            <th >Producto</th>
-                            <th >Modificar</th>
-                            <th >Eliminar</th>
-
-                        </tr>
-				</thead>
-                            
-				<tbody>
-                        <tr th:each="comentario : ${comentarios}">
-                        <td th:text="${comentario.detalle}"></td> 
-                        <td th:text="${comentario.producto.descripcion}"></td> 
-                        <td><a type="button" class="btn btn-warning" th:href="@{/comentario/modificar/} + ${comentario.idComentario}">Modificar</a></td>
-                        <td><a type="button" class="btn btn-danger" th:href="@{/comentario/eliminar/} + ${comentario.idComentario}">Eliminar</a></td>
-                  
-                        </tr>
-				</tbody>
-			</table>
-		</div>
-	</div>
-</div>
-
-            <div th:if="${comentarios ==null or comentarios.empty}">
-                <p > No hay clientes que mostrar</p>
-            </div>
-        </div>
+        
+        <section th:replace="~{comentario/fragmentos :: listadoComentarios}"/> 
+        
         <footer th:replace="~{layout/plantilla :: footer}"/>
     </body>
 </html>

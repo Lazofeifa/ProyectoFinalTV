@@ -8,27 +8,7 @@
     <body>
         <header th:replace="layout/plantilla :: header"/>
         
-        <h2>Datos de Suscripcion</h2>
-        <hr>
-        <a th:href="@{/suscripcion/listado}">Regresar</a>
-        <hr>
-        <form th:action="@{/suscripcion/guardar}"
-              method="post"
-              th:object="${suscripcion}">
-            <input type="hidden" name="idSuscripcion" 
-                   th:field="*{idSuscripcion}"/>
-            
-            <label>Tipo</label>
-            <input type="text" 
-                   name="tiposus"
-                   required="true"
-                   th:field="*{tiposus}"/>
-
-            <br>
-            <hr>
-            <input type="submit" value="Guardar" />
-            <hr>            
-        </form>
+        <section th:replace="~{suscripcion/fragmentos :: modificarSuscripciones}"/>
         
         <footer th:replace="layout/plantilla :: footer"/>
     </body>

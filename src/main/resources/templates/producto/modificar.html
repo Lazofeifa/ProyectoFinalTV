@@ -8,34 +8,7 @@
     <body>
         <header th:replace="layout/plantilla :: header"/>
         
-        <h2>Datos de Productos</h2>
-        <hr>
-        <a th:href="@{/producto/listado}">Regresar</a>
-        <hr>
-        <form th:action="@{/producto/guardar}"
-              method="post"
-              th:object="${producto}">
-            <input type="hidden" name="idProducto" 
-                   th:field="*{idProducto}"/>
-            
-            <label>Descripcion</label>
-            <input type="text" 
-                   name="descripcion"
-                   required="true"
-                   th:field="*{descripcion}"/>
-
-            <br>
-            <label>Precio</label>
-            <input type="text" 
-                   name="precio"
-                   required="true"
-                   th:field="*{precio}"/>
-
-            <br>
-            <hr>
-            <input type="submit" value="Guardar" />
-            <hr>            
-        </form>
+        <section th:replace="~{producto/fragmentos :: modificarProductos}"/>
         
         <footer th:replace="layout/plantilla :: footer"/>
     </body>

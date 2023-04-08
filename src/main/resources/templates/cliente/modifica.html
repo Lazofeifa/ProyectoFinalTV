@@ -8,59 +8,7 @@
     <body>
         <header th:replace="layout/plantilla :: header"/>
         
-        <h2>Datos de Cliente</h2>
-        <hr>
-        <a th:href="@{/cliente/listado}">Regresar</a>
-        <hr>
-        <form th:action="@{/cliente/guardar}"
-              method="post"
-              th:object="${cliente}">
-            <input type="hidden" name="idCliente" 
-                   th:field="*{idCliente}"/>
-            
-            <label th:text="#{cliente.nombre}">Nombre</label>
-            <input type="text" 
-                   name="nombre"
-                   required="true"
-                   th:field="*{nombre}"/>
-            <br>
-            
-            <label>Apellidos</label>
-            <input type="text" 
-                   name="apellidos"
-                   required="true"
-                   th:field="*{apellidos}"/>
-            <br>
-            
-            
-            <label>Telefono</label>
-            <input type="text" 
-                   name="telefono"
-                   th:field="*{telefono}"/>
-            <br>
-                
-            <label>Pais</label>
-            <input type="text" 
-                   name="Pais"
-                   th:field="*{ubicacion.pais}"/>
-            <br>
-            
-            <label>Ciudad</label>
-            <input type="text" 
-                   name="Ciudad"
-                   th:field="*{ubicacion.ciudad}"/>
-            <br>
-                
-            <label>Suscripcion</label>
-            <input type="text" 
-                   name="Ciudad"
-                   th:field="*{suscripcion.tiposus}"/>
-            <br>
-                
-            <hr>
-            <input type="submit" value="guardar" />
-            <hr/>            
-        </form>
+        <section th:replace="~{cliente/fragmentos :: modificarClientes}"/>
         
         <footer th:replace="layout/plantilla :: footer"/>
     </body>

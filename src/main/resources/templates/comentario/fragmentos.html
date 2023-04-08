@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{layout/plantilla :: head}">
+    <title>Spectrum</title>
+    <meta charset="UTF-8"/>
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+    <header th:replace="~{layout/plantilla :: header}"/>
+    
+    
+    <section th:fragment="listadoComentarios" id="comentarios">
+    
+      <div class="contenido">
+            <h2>Comenarios</h2>
+            <hr>
+            <a type="button" class="btn btn-primary" th:href="@{/comentario/nuevo}">Nuevo comentario</a>
+            <hr>
+            <div th:if="${comentarios !=null and !comentarios.empty}">
+                <table border="0">
+                    <thead>
+
+                    </thead>
+                    <tbody>
+      
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+                        <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table">
+				<thead class="table-active">
+                                   
+	                        <tr>
+                            <th >Detalle</th>
+                            <th >Producto</th>
+                            <th >Modificar</th>
+                            <th >Eliminar</th>
+
+                        </tr>
+				</thead>
+                            
+				<tbody>
+                        <tr th:each="comentario : ${comentarios}">
+                        <td th:text="${comentario.detalle}"></td> 
+                        <td th:text="${comentario.producto.descripcion}"></td> 
+                        <td><a type="button" class="btn btn-warning" th:href="@{/comentario/modificar/} + ${comentario.idComentario}">Modificar</a></td>
+                        <td><a type="button" class="btn btn-danger" th:href="@{/comentario/eliminar/} + ${comentario.idComentario}">Eliminar</a></td>
+                  
+                        </tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+            <div th:if="${comentarios ==null or comentarios.empty}">
+                <p > No hay clientes que mostrar</p>
+            </div>
+        </div>  
+        
+    </section>
+    
+    <section th:fragment="modificarComentarios">
+        
+        <h2>Comentarios</h2>
+        <hr>
+        <a th:href="@{/comentario/listado}">Regresar</a>
+        <hr>
+        <form th:action="@{/comentario/guardar}"
+              method="post"
+              th:object="${comentario}">
+            <input type="hidden" name="idComentario" 
+                   th:field="*{idComentario}"/>
+            
+            <label >Detalle</label>
+            <input type="text" 
+                   name="detalle"
+                   required="true"
+                   th:field="*{detalle}"/>
+            <br>
+            
+            
+            <label >Producto</label>
+            <input type="text" 
+                   name="descripcion"
+                   required="true"
+                   th:field="*{producto.descripcion}"/>
+            <br>    
+                
+            <hr>
+            <input type="submit" value="Guardar" />
+            <hr/>            
+        </form>
+            
+    </section>
+    
+    
+    
+    
+    <footer th:replace="~{layout/plantilla :: footer}"/>
+</body>
+</html>

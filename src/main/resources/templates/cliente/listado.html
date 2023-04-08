@@ -13,57 +13,8 @@
 <body>
     <header th:replace="~{layout/plantilla :: header}"/>
     
-    <div >
-        <div>
-            <h2>Listado de Clientes</h2>
-            <hr>
-            <a type="button" class="btn btn-primary" th:text="#{cliente.nuevo}" th:href="@{/cliente/nuevo}">Nuevo cliente</a>
-
-                <div th:if="${clientes !=null and !clientes.empty}">
-                </div>
-                <hr>
-        </div>
-    </div>
-            <div class="container-fluid">
-	<div class="row">
-		<div class="col-md-12">
-			<table class="table">
-				<thead class="table-active">
-                                   
-					<tr>
-				<th th:text="#{cliente.nombre}" >Nombre</th>
-                                <th th:text="#{cliente.apellidos}" >Apellidos</th>
-                                <th th:text="#{cliente.telefono}">Teléfono</th>
-                                <th th:text="#{cliente.pais}">Pais</th>
-                                <th th:text="#{cliente.ciudad}">ciudad</th>
-                                <th th:text="#{cliente.suscripcion}">Suscripcion</th>
-                                <th th:text="#{accion.eleminar}">Eliminar</th>
-                                <th th:text="#{accion.actulizar}" >Modificar</th>	
-						
-					</tr>
-				</thead>
-                            
-				<tbody>
-                            <tr th:each="cliente : ${clientes}">
-                            <td  th:text="${cliente.nombre}"></td> 
-                            <td th:text="${cliente.apellidos}"></td> 
-                            <td th:text="${cliente.telefono}"></td>
-                            <td th:text="${cliente.ubicacion.pais}"></td>
-                            <td th:text="${cliente.ubicacion.ciudad}"></td>
-                            <td th:text="${cliente.suscripcion.tiposus}"></td>
-                            <td><a type="button" class="btn btn-warning" th:href="@{/cliente/modificar/} + ${cliente.idCliente}">Modificar</a></td>
-                            <td><a type="button" class="btn btn-danger" th:href="@{/cliente/eliminar/} + ${cliente.idCliente}">Eliminar</a></td>
-        
-                        </tr>
-           <div th:if="${clientes ==null or clientes.empty}">
-                <p > No hay clientes que mostrar</p>
-
-            </div>
-				</tbody>
-			</table>
-		</div>
-	</div>
-</div>
+    <section th:replace="~{cliente/fragmentos :: listadoClientes}"/> 
+    
     <footer th:replace="~{layout/plantilla :: footer}"/>
 </body>
 </html>

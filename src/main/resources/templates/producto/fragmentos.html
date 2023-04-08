@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{layout/plantilla :: head}">
+    <title>Spectrum</title>
+    <meta charset="UTF-8"/>
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+    <header th:replace="~{layout/plantilla :: header}"/>
+    
+    
+    <section th:fragment="listadoProductos" id="productos">
+    
+        <div class="contenido">
+            <h2>Listado de Productos</h2>
+            <dl>
+				<dd>
+					En este apartado puede agregar, modificar o eliminar productos
+				</dd>
+            <hr>
+                
+            <a type="button" class="btn btn-primary" th:href="@{/producto/nuevo}">Nuevo Producto</a>
+            <div th:if="${productos !=null and !productos.empty}">
+                <table border="0">
+                    <thead>
+
+                    </thead>
+            <hr>
+            <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table">
+				<thead class="table-active">
+                                   
+					<tr>		
+						<th>Descripción</th>
+						<th>Precio</th>
+						<th>Modificar</th>
+                                                <th>Eliminar</th>
+					</tr>
+				</thead>
+                            
+				<tbody>
+                        <tr th:each="producto : ${productos}">
+                        <td th:text="${producto.descripcion}"></td> 
+                        <td th:text="${producto.precio}"></td>
+                        <td><a type="button" class="btn btn-warning" th:href="@{/producto/modificar/} + ${producto.idProducto}">Modificar</a></td>
+                        <td><a type="button" class="btn btn-danger" th:href="@{/producto/eliminar/} + ${producto.idProducto}">Eliminar</a></td>
+                        
+                        </tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+    </div>
+        
+    </section>
+    
+    <section th:fragment="modificarProductos">
+        
+        <h2>Productos</h2>
+        <hr>
+        <a th:href="@{/producto/listado}">Regresar</a>
+        <hr>
+        <form th:action="@{/producto/guardar}"
+              method="post"
+              th:object="${producto}">
+            <input type="hidden" name="idProducto" 
+                   th:field="*{idProducto}"/>
+            
+            <label >Detalle</label>
+            <input type="text" 
+                   name="descripcion"
+                   required="true"
+                   th:field="*{descripcion}"/>
+            <br>
+            
+            
+            <label >Precio</label>
+            <input type="text" 
+                   name="precio"
+                   required="true"
+                   th:field="*{precio}"/>
+            <br>    
+                
+            <hr>
+            <input type="submit" value="Guardar" />
+            <hr/>            
+        </form>
+        
+        
+    </section>
+    
+    
+    
+    
+    <footer th:replace="~{layout/plantilla :: footer}"/>
+</body>
+</html>

@@ -26,7 +26,7 @@ public class SuscripcionController {
     
     @GetMapping("/nuevo")
     public String nuevoSuscripcion(Suscripcion suscripcion) {
-        return "/suscripcion/modifica";
+        return "/suscripcion/modificar";
     }
     
     @PostMapping("/guardar")
@@ -46,6 +46,6 @@ public class SuscripcionController {
     public String modificaSuscripcion(Suscripcion suscripcion, Model model) {
         suscripcion = suscripcionService.getSuscripcion(suscripcion);
         model.addAttribute("suscripcion",suscripcion);
-        return "/suscripcion/modifica";
+        return "/suscripcion/modificar";
     }
 }

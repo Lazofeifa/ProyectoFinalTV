@@ -12,63 +12,9 @@
     </head>
     <body>
         <header th:replace="~{layout/plantilla :: header}"/>
-        <div class="contenido">
-            <h2>Listado de Productos</h2>
-            <dl>
-				<dd>
-					En este apartado puede agregar, modificar o eliminar productos
-				</dd>
-            <hr>
-            <a type="button" class="btn btn-primary" th:href="@{/producto/nuevo}">Nuevo Producto</a>
-            <div th:if="${productos !=null and !productos.empty}">
-                <table border="0">
-                    <thead>
-
-                    </thead>
-            <hr>
-            <div class="container-fluid">
-	<div class="row">
-		<div class="col-md-12">
-			<table class="table">
-				<thead class="table-active">
-                                   
-					<tr>
-						
-						<th>
-						        Descripción
-						</th>
-                                            
-						<th>
-							Precio
-						</th>
-						<th>
-							Modificar
-						</th>
-                                            <th>
-							Eliminar
-						</th>
-					</tr>
-				</thead>
-                            
-				<tbody>
-                        <tr th:each="producto : ${productos}">
-                        <td th:text="${producto.descripcion}"></td> 
-                        <td th:text="${producto.precio}"></td>
-                        <td><a type="button" class="btn btn-warning" th:href="@{/producto/modificar/} + ${producto.idProducto}">Modificar</a></td>
-                        <td><a type="button" class="btn btn-danger" th:href="@{/producto/eliminar/} + ${producto.idProducto}">Eliminar</a></td>
-                        
-                        </tr>
-				</tbody>
-			</table>
-		</div>
-	</div>
-</div>
-            
-  <div th:if="${productos ==null or productos.empty}">
-                <p > No hay productos que mostrar</p>
-            </div>
-
-        </div>
+        
+        <section th:replace="~{producto/fragmentos :: listadoProductos}"/>
+        
         <footer th:replace="~{layout/plantilla :: footer}"/>
     </body>
 </html>
