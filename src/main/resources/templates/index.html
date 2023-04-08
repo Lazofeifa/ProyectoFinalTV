@@ -5,15 +5,14 @@
     <head>
         <title>Spectrum</title>
         <meta charset="UTF-8"/>
-        <link href="/css/styles.css" rel="stylesheet" type="text/css"/> </head>
-        <style>
-        .contenedorIndex {
-            display: flex;
-            justify-content: center;
-            color: #024070;
-        }
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
         
-        </style>
+    </head>
+
     <body>
         <header th:replace="layout/plantilla :: header"/>
         <div >
@@ -23,24 +22,78 @@
                 </li>    
             </ul> 
             
-            <div class="contenedorIndex" align="center" >
-                <h4> Autogestión de servicios </h4> 
-                    <p> <img  src="https://res.cloudinary.com/uvggt/image/upload/f_auto/v1622486553/2021/Mayo/Historia%20del%20Internet/historia_internet_gt.jpg" alt="" style=" width:49%;  "/></p>
-                <h4> Servicios de internet</h4> 
-                    <p> <img src="https://internetparaguay.com/wp-content/uploads/2020/09/hombre-joven-ordenador-portatil-telefono_171337-16299.jpg" alt="" style=" width:55%; "/></p>
-           
-            </div>
-            <div  class="contenedorIndex" align="center">
-                <h4> Servicios de TV </h4> 
-                    <p> <img src="https://static-prod.adweek.com/wp-content/uploads/2020/11/home-tv-usage-work-students-CONTENT-2020.jpg" alt="" style=" width:48%; "/></p>
-                <h4> Perfil de cliente</h4> 
-                    <p> <img src="https://i0.wp.com/tecnolikeplus.com/wp-content/uploads/2020/09/control-television-por-cable-radio-habana-cuba.jpg?fit=1024%2C576&ssl=1" alt="" style=" width:55%; "/></p>
-            </div>
+            <br>
+                <br>
+                    <br>
+                        <br>
+                            
             
             
-
             
-        </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+    <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-12">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<img alt="Bootstrap Image Preview" src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg" />
+					<p class="lead">
+						Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
+					</p>
+				</div>
+				<div class="col-md-4">
+					<img alt="Bootstrap Image Preview" src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg" />
+					<p class="lead">
+						Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
+					</p>
+				</div>
+				<div class="col-md-4">
+					<img alt="Bootstrap Image Preview" src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg" />
+					<p class="lead">
+						Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
+					</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<blockquote class="blockquote">
+						<p class="mb-0">
+							"Podemos cumplir sus sueños".
+						</p>
+                                            <br>
+						<footer class="blockquote-footer">
+							CEO <cite>Juan Vargas</cite>
+						</footer>
+					</blockquote>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+            
         <footer th:replace="layout/plantilla :: footer"/>
     </body>
 </html>

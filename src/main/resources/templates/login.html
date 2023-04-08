@@ -2,33 +2,64 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://wwww.thymeleaf.org">
     <head th:replace="~{layout/plantilla :: head}">
-        <title>TechShop</title>
+        <title>Spectrum</title>
         <meta charset="UTF-8"/>
+        <link href="../../static/css/styles.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+        <link href="/css/styles.css" rel="stylesheet" type="text/css"/> 
     </head>
+    <header> 
+     <hr>
+    </header>
     <body>
-        <header th:replace="~{layout/plantilla :: header}"/>
-            <div> 
-                <h2>Login</h2>
-            </div>
-                <div>
-                    <form method="POST" th:action="@{/login}">
-                        <div>
-                            <label for="username">Usuario</label>
-                        </div>    
-                        <div>
-                            <input type="text" name="username" 
-                                   id="username"/>
+                 
+        <a th:href="@{/}"  class="logo nav-link" >
+                   <center> <img src="https://www.spectrum.com/content/experience-fragments/spectrum/residential/en/header/global-header-xf/master/_jcr_content/root/header/brandLogo.coreimg.svg/1663276278765/spectrum-logo.svg"/> </center>
+                </a>
+    
+       <div class="container my-5">
+            <div class="row align-items-center"> 
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-active">
+                            <h2>Login</h2></div>
+                        <div class="card-body">
+                            <form method="POST" th:action="@{/login}">
+                                <div class="form-group row my-3">
+                                    <label class="col-md-5 my-auto" for="username">
+                                        <i class="fas fa-user-lock"></i>
+                                        [[#{login.username}]]:</label>
+                                    <div class="col-md-7 my-auto">
+                                        <input class="form-control" 
+                                               type="text" name="username" 
+                                               id="username"/></div></div>
+                                <div class="form-group row my-3">
+                                    <label class="col-md-5 my-auto" for="password">
+                                        <i class="fas fa-key"></i>
+                                        [[#{login.password}]]</label>
+                                    <div class="col-md-7 my-auto">
+                                        <input class="form-control" 
+                                               type="password" name="password" 
+                                               id="password"/></div></div>
+                                <div class="card-footer col text-center">
+                                    <button class="btn btn-primary" type="submit">
+                                        <i class="fas fa-sign-in-alt"></i>
+                                        [[#{login.login}]]</button>
+                                </div>
+                            </form>
                         </div>
-                            <label for="password">Password</label>
-                        <div>
-                            <input type="password" name="password" 
-                                   id="password"/>
-                        </div>    
-                        <div>
-                            <button type="submit">Submit</button>
-                        </div>          
-                    </form>
-                </div> 
+                    </div>
+                </div>
+            </div>        
+        </div>
+        
+        
+        
         <footer th:replace="~{layout/plantilla :: footer}"/>     
     </body>
 </html>
