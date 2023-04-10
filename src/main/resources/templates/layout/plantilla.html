@@ -20,7 +20,7 @@
             <h1 style="text-align: right;background-color: #002A4A;color:gainsboro; font-size: 80%;" sec:authorize="isAuthenticated()">
                 <i></i>Usuario: <span sec:authentication="name"></span>
                 <form method="post" th:action="@{/logout}">
-                    <button class="btn btn-primary"><i ></i>Salir</button>                
+                    <button class="btn btn-primary" th:text="#{login.signout}"><i ></i>Salir</button>                
                 </form>
             </h1>
                 
@@ -37,16 +37,16 @@
 			<ul class="nav" sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_VENDEDOR')">
                             <li class="nav-item">
 					<a class="nav-link" sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_VENDEDOR')" 
-                                         th:href="@{/cliente/listado}" >Clientes</a>
+                                         th:href="@{/cliente/listado}" th:text="#{plantilla.clientes}" >Clientes</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link active" th:href="@{/producto/listado}"  >Productos y Servicios</a>
+					<a class="nav-link active" th:href="@{/producto/listado}" th:text="#{plantilla.Productos y Servicios}"  >Productos y Servicios</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" th:href="@{/suscripcion/listado}" >Suscripciones</a>
+					<a class="nav-link" th:href="@{/suscripcion/listado}" th:text="#{plantilla.suscripciones}">Suscripciones</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" th:href="@{/comentario/listado}" >Comentarios y Experiencias</a>
+					<a class="nav-link" th:href="@{/comentario/listado}" th:text="#{plantilla.consultas}" >Comentarios y Experiencias</a>
 				</li>
                             
                                 
@@ -69,29 +69,31 @@
 
         <footer th:fragment="footer">            
             <hr/>
-            <p th:text="#{aplicacion.footer}"></p>
-            <p th:text="#{aplicacion.telefono}"></p>
-         
+        
             <center>
-            <a th:href="@{/info/internet}" >  Internet
-                <img src="https://www.spectrum.com/content/dam/spectrum/common/en/Icons/Icons-Medium-Blue/icon-internet-mediumblue.svg"/>
+            <a th:href="@{/info/internet}" ><img src="https://www.spectrum.com/content/dam/spectrum/common/en/Icons/Icons-Medium-Blue/icon-internet-mediumblue.svg"/>
             </a>
-            <a th:href="@{/info/tv}"  > TV
-                <img src="https://www.spectrum.com/content/dam/spectrum/common/en/Icons/Icons-Medium-Blue/icon-tv-mediumblue.svg"/>
+            <a th:href="@{/info/tv}"  >
+             <img src="https://www.spectrum.com/content/dam/spectrum/common/en/Icons/Icons-Medium-Blue/icon-tv-mediumblue.svg"/>
             </a>
-            <a th:href="@{/info/voice}" > VOZ
+            <a th:href="@{/info/voice}" > 
                 <img src="https://www.spectrum.com/content/dam/spectrum/common/en/Icons/Icons-Medium-Blue/icon-voice-mediumblue.svg"/>
             </a>
-            <a th:href="@{/info/mobile}" >   Celular
+            <a th:href="@{/info/mobile}" > 
                 <img src="https://www.spectrum.com/content/dam/spectrum/common/en/Icons/Icons-Medium-Blue/icon-mobile-mediumblue.svg"/>
             </a>
+               <p th:text="#{plantilla.derechos}"></p>
+           
+                 <p th:text="#{plantilla.telefono}"></p> 
             </center>
             <hr/>
-            <p>
+               
+           <p>
                 <a th:href="@{/(lang=ES)}">ES</a>
                 <a th:href="@{/(lang=EN)}">EN</a>
             </p>
         </footer> 
+         
         <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
         <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
         <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
