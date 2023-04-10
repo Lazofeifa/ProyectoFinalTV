@@ -16,16 +16,73 @@
           <hr>
           <center>
         <h1 th:text="#{internet.ti}"></h1>
-     
-        <p th:text="#{internet.info}"></p>
-        <div  style="align-content: center">
-        <h4 th:text="#{internet.pl30}">&nbsp;</h4> 
-        <h4 th:text="#{internet.pl100}">&nbsp;</h4>
-        <h4 th:text="#{internet.pl500}">&nbsp;</h4>
-        <h4 th:text="#{internet.pl1000}">&nbsp;</h4>
-        </div>
-         </center>
+    </center>
         </hr>
+                       
+               
+          
+            <div class="container text-center">
+                <div class="row align-items-end">
+                    <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <img src=https://previews.123rf.com/images/madmaxer/madmaxer1304/madmaxer130400119/19375387-3d-ilustraci%C3%B3n-de-la-mano-del-cursor-apunta-a-la-internet-global.jpg class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title"th:text="#{internet.pl30}" >Card title</h5>
+                                    <p class="card-text" th:text="#{internet.precio1}"> </p>
+                                </div>
+                          
+                                <div class="card-body">
+                                    <a href="#" class="card-link">Obtener</a>
+                                    <a href="#" class="card-link">Contactar</a>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <img src=https://previews.123rf.com/images/madmaxer/madmaxer1304/madmaxer130400119/19375387-3d-ilustraci%C3%B3n-de-la-mano-del-cursor-apunta-a-la-internet-global.jpg class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title"th:text="#{internet.pl100}" >Card title</h5>
+                                    <p class="card-text" th:text="#{internet.precio3}"> </p>
+                                </div>
+                              
+                                <div class="card-body">
+                                    <a href="#" class="card-link">Obtener</a>
+                                    <a href="#" class="card-link">Contactar</a>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <img src=https://previews.123rf.com/images/madmaxer/madmaxer1304/madmaxer130400119/19375387-3d-ilustraci%C3%B3n-de-la-mano-del-cursor-apunta-a-la-internet-global.jpg class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title"th:text="#{internet.pl500}" >Card title</h5>
+                                    <p class="card-text" th:text="#{internet.precio2}"> </p>
+                                </div>
+                             
+                                <div class="card-body">
+                                    <a href="#" class="card-link">Obtener</a>
+                                    <a href="#" class="card-link">Contactar</a>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <img src=https://previews.123rf.com/images/madmaxer/madmaxer1304/madmaxer130400119/19375387-3d-ilustraci%C3%B3n-de-la-mano-del-cursor-apunta-a-la-internet-global.jpg class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title"th:text="#{internet.pl1000}" >Card title</h5>
+                                    <p class="card-text" th:text="#{internet.precio4}"> </p>
+                                </div>
+                              
+                                <div class="card-body">
+                                    <a href="#" class="card-link">Obtener</a>
+                                    <a href="#" class="card-link">Contactar</a>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<div class="container-lg" th:text="#{internet.nota}"></div>
+       
         <footer th:replace="layout/plantilla :: footer"/>
     </body>
 </html>
