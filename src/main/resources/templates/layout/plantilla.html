@@ -17,18 +17,19 @@
         <header th:fragment="header">
             <nav class="nav">
             </nav>
+            
             <h1 style="text-align: right;background-color: #002A4A;color:gainsboro; font-size: 80%;" sec:authorize="isAuthenticated()">
                 <i></i>Usuario: <span sec:authentication="name"></span>
                 <form method="post" th:action="@{/logout}">
                     <button class="btn btn-primary" th:text="#{login.signout}"><i ></i>Salir</button>                
                 </form>
             </h1>
-                
+             <div class="container-fluid">   
             <!-- Logo para regresar al index -->
                 <a th:href="@{/}"  class="logo nav-link" >
                     <img src="https://www.spectrum.com/content/experience-fragments/spectrum/residential/en/header/global-header-xf/master/_jcr_content/root/header/brandLogo.coreimg.svg/1663276278765/spectrum-logo.svg"/>
                 </a>
-            <hr>
+            </div>
    
           <div class="container-fluid" >
 	<div class="row">
@@ -67,10 +68,10 @@
             
         </header>  
 
-        <footer th:fragment="footer">            
+        <footer th:fragment="footer" style="background-color: lightgrey">            
             <hr/>
         
-            <center>
+            <center >
             <a th:href="@{/info/internet}" ><img src="https://www.spectrum.com/content/dam/spectrum/common/en/Icons/Icons-Medium-Blue/icon-internet-mediumblue.svg"/>
             </a>
             <a th:href="@{/info/tv}"  >
@@ -86,12 +87,15 @@
            
                  <p th:text="#{plantilla.telefono}"></p> 
             </center>
-            <hr/>
-               
+              
+            <div style="background-color:#002A4A;color:white ">
+                <br>
            <p>
                 <a th:href="@{/(lang=ES)}">ES</a>
-                <a th:href="@{/(lang=EN)}">EN</a>
+                <a th:href="@{/(lang=EN)}">EN</a> 
             </p>
+                
+                </div>
         </footer> 
          
         <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
