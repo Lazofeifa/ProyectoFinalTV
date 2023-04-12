@@ -15,9 +15,12 @@
     
     
     <section th:fragment="listadoComentarios" id="comentarios">
-    
-      <div class="contenido">
-            <h2>Comenarios</h2>
+        <div class="container-fluid">
+          <div class="contenido">
+            <h2>Comentarios</h2>
+            <dd>
+		En este apartado puede agregar, modificar o eliminar comentarios.
+            </dd>
             <hr>
             <a type="button" class="btn btn-primary" th:href="@{/comentario/nuevo}">Nuevo comentario</a>
             <hr>
@@ -32,7 +35,7 @@
                     </tbody>
                 </table>
             </div>
-                        <div class="container-fluid">
+                        
 	<div class="row">
 		<div class="col-md-12">
 			<table class="table">
@@ -59,21 +62,28 @@
 			</table>
 		</div>
 	</div>
-</div>
 
             <div th:if="${comentarios ==null or comentarios.empty}">
                 <p > No hay clientes que mostrar</p>
             </div>
         </div>  
+            </div>
         
     </section>
     
+    
     <section th:fragment="modificarComentarios">
-        
+        <div class="container-fluid">
         <h2>Comentarios</h2>
+        <dd>
+					Ingrese comentarios.
+				</dd>
         <hr>
-        <a th:href="@{/comentario/listado}">Regresar</a>
-        <hr>
+             
+        	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-4">
         <form th:action="@{/comentario/guardar}"
               method="post"
               th:object="${comentario}">
@@ -82,6 +92,7 @@
             
             <label >Detalle</label>
             <input type="text" 
+                   class="form-control"
                    name="detalle"
                    required="true"
                    th:field="*{detalle}"/>
@@ -90,17 +101,31 @@
             
             <label >Producto</label>
             <input type="text" 
+                   class="form-control"
                    name="descripcion"
                    required="true"
                    th:field="*{producto.descripcion}"/>
             <br>    
                 
-            <hr>
-            <input type="submit" value="Guardar" />
-            <hr/>            
+            
+            <input type="submit" value="Guardar" class="btn btn-warning" />
+                        
         </form>
             
+        
+            </div>
+                            </div>
+                    </div>
+                    </div>
+                
+            </div>
+        <br>
+            <br><br><br>
+                        <div class="container-fluid">
+        <a th:href="@{/comentario/listado}" class="btn btn-primary">Regresar</a>  
+        </div>
     </section>
+          
     
     
     

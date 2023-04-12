@@ -13,11 +13,16 @@
 <body>
     <header th:replace="~{layout/plantilla :: header}"/>
     
-    
+      
     <section th:fragment="listadoClientes" id="clientes">
+        <div class="container-fluid">  
     <div >
         <div>
+             
             <h2>Listado de Clientes</h2>
+            <dd>
+					En este apartado puede agregar, modificar o eliminar clientes
+				</dd>
             <hr>
             <a type="button" class="btn btn-primary" th:text="#{cliente.nuevo}" th:href="@{/cliente/nuevo}" sec:authorize="hasRole('ROLE_ADMIN')">Nuevo cliente</a>
 
@@ -26,6 +31,7 @@
                 <hr>
         </div>
     </div>
+       </div>
             <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
@@ -68,10 +74,16 @@
     
     <section th:fragment="modificarClientes">
         
+    <div class="container-fluid">    
         <h2>Datos de Cliente</h2>
         <hr>
-        <a th:href="@{/cliente/listado}">Regresar</a>
-        <hr>
+      
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-4">
+					 
         <form th:action="@{/cliente/guardar}"
               method="post"
               th:object="${cliente}">
@@ -79,7 +91,8 @@
                    th:field="*{idCliente}"/>
             
             <label th:text="#{cliente.nombre}">Nombre</label>
-            <input type="text" 
+            <input type="text"
+                   class="form-control"
                    name="nombre"
                    required="true"
                    th:field="*{nombre}"/>
@@ -87,46 +100,56 @@
             
             <label>Apellidos</label>
             <input type="text" 
+                   class="form-control"
                    name="apellidos"
                    required="true"
-                   th:field="*{apellidos}"/>
+                   th:field="*{apellidos}" />
             <br>
-            
-            
-            <label>Telefono</label>
+
+            <label>Teléfono</label>
             <input type="text" 
+                   class="form-control"
                    name="telefono"
                    th:field="*{telefono}"/>
             <br>
                 
-            <label>Pais</label>
+            <label>País</label>
             <input type="text" 
+                   class="form-control"
                    name="Pais"
                    th:field="*{ubicacion.pais}"/>
             <br>
             
             <label>Ciudad</label>
             <input type="text" 
+                   class="form-control"
                    name="Ciudad"
                    th:field="*{ubicacion.ciudad}"/>
             <br>
                 
-            <label>Suscripcion</label>
+            <label>Suscripción</label>
             <input type="text" 
+                   class="form-control"
                    name="Ciudad"
                    th:field="*{suscripcion.tiposus}"/>
             <br>
                 
-            <hr>
-            <input type="submit" value="guardar" />
-            <hr/>            
-        </form>
+           
+            <input type="submit" value="Guardar" class="btn btn-warning"/>
             
+           
+        </form>
+                                    
+                                        </div>
+                        </div> 
+                    </div>
+            </div>
+      <hr>
+      <a th:href="@{/cliente/listado}" class="btn btn-primary" position="right">Regresar</a>
+            </div>
+      
     </section>
-    
-    
-    
-    
+
     <footer th:replace="~{layout/plantilla :: footer}"/>
 </body>
 </html>

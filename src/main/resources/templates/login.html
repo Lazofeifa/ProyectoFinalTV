@@ -12,8 +12,18 @@
         <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
         <link href="/css/styles.css" rel="stylesheet" type="text/css"/> 
     </head>
-    <header> 
+    <header>
+             <h1 style="text-align: right;background-color: #002A4A;color:gainsboro; font-size: 40%;" >  
+                 <br>
+               <div class="container-fluid"> 
+               <p>
+                <a button class="btn btn-primary" th:href="@{/}" style="color:white;">Volver al inicio</a>
+            </p>
+                   </div>
+                 
+           </h1>
      <hr>
+         <br><br><br> 
     </header>
     <body>
                  
@@ -59,7 +69,7 @@
         </div>
         
         
-        
+        <br><br><br><br>
         <footer th:replace="~{layout/plantilla :: footer}"/>     
     </body>
 </html>

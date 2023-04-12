@@ -17,14 +17,14 @@
         <header th:fragment="header">
             <nav class="nav">
             </nav>
-            
+                           
             <h1 style="text-align: right;background-color: #002A4A;color:gainsboro; font-size: 80%;" sec:authorize="isAuthenticated()">
                 <i></i>Usuario: <span sec:authentication="name"></span>
                 <form method="post" th:action="@{/logout}">
                     <button class="btn btn-primary" th:text="#{login.signout}"><i ></i>Salir</button>                
                 </form>
             </h1>
-             <div class="container-fluid">   
+            <div class="container-fluid">   
             <!-- Logo para regresar al index -->
                 <a th:href="@{/}"  class="logo nav-link" >
                     <img src="https://www.spectrum.com/content/experience-fragments/spectrum/residential/en/header/global-header-xf/master/_jcr_content/root/header/brandLogo.coreimg.svg/1663276278765/spectrum-logo.svg"/>
@@ -68,7 +68,7 @@
             
         </header>  
 
-        <footer th:fragment="footer" style="background-color: lightgrey">            
+        <footer th:fragment="footer" style="background-color: whitesmoke">            
             <hr/>
         
             <center >

@@ -15,15 +15,15 @@
     
     
     <section th:fragment="listadoProductos" id="productos">
-    
+    <div class="container-fluid">
         <div class="contenido">
+            
             <h2>Listado de Productos</h2>
-            <dl>
-				<dd>
+       				<dd>
 					En este apartado puede agregar, modificar o eliminar productos
 				</dd>
             <hr>
-                
+
             <a type="button" class="btn btn-primary" th:href="@{/producto/nuevo}">Nuevo Producto</a>
             <div th:if="${productos !=null and !productos.empty}">
                 <table border="0">
@@ -31,6 +31,10 @@
 
                     </thead>
             <hr>
+                </div>
+            </div>
+        </div>
+        
             <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
@@ -62,11 +66,17 @@
     </section>
     
     <section th:fragment="modificarProductos">
-        
+        <div class="container-fluid">
         <h2>Productos</h2>
+        	<dd>
+					Ingrese información del producto.
+				</dd>
         <hr>
-        <a th:href="@{/producto/listado}">Regresar</a>
-        <hr>
+       
+            <div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-4">
         <form th:action="@{/producto/guardar}"
               method="post"
               th:object="${producto}">
@@ -75,6 +85,7 @@
             
             <label >Detalle</label>
             <input type="text" 
+                   class="form-control"
                    name="descripcion"
                    required="true"
                    th:field="*{descripcion}"/>
@@ -83,20 +94,34 @@
             
             <label >Precio</label>
             <input type="text" 
+                   class="form-control"
                    name="precio"
                    required="true"
                    th:field="*{precio}"/>
             <br>    
                 
-            <hr>
-            <input type="submit" value="Guardar" />
-            <hr/>            
+            
+            <input type="submit" value="Guardar" class="btn btn-warning" />
+                       
         </form>
+        </div>
+                            </div>
+                    </div>
+                </div>
+
+                <br>
+                    <br>
+        <br>   
+            <br>
+            <br>
+                <br>
+            <hr>
+            <a th:href="@{/producto/listado}" class="btn btn-primary">Regresar</a>
         
-        
+            </div>
     </section>
     
-    
+     
     
     
     <footer th:replace="~{layout/plantilla :: footer}"/>

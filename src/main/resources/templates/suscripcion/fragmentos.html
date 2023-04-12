@@ -12,18 +12,18 @@
 </head>
 <body>
     <header th:replace="~{layout/plantilla :: header}"/>
-    
-    
     <section th:fragment="listadoSuscripciones" id="suscripciones">
-    
+    <div class="container-fluid"> 
         
         <div class="contenido">
             <h2>Listado de Suscripciones</h2>
+                      <dd>
+					En este apartado puede agregar, modificar o eliminar suscripciones.
+				</dd>
             <hr>
             <a type="button" class="btn btn-primary" th:href="@{/suscripcion/nuevo}">Nueva Suscripcion</a>
-
             <div th:if="${suscripciones !=null and !suscripciones.empty}">
-               
+               <hr>
                  <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
@@ -51,15 +51,24 @@
             
         </div>
         </div>
-        
+                   </div>
+            </div>
+        </div>
+
     </section>
     
     <section th:fragment="modificarSuscripciones">
-        
+        <div class="container-fluid">
        <h2>Datos de Suscripcion</h2>
-        <hr>
-        <a th:href="@{/suscripcion/listado}">Regresar</a>
-        <hr>
+            <dd>
+					Ingrese información de suscripción.
+				</dd>
+       
+       <hr>
+        	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-4">
         <form th:action="@{/suscripcion/guardar}"
               method="post"
               th:object="${suscripcion}">
@@ -67,22 +76,44 @@
                    th:field="*{idSuscripcion}"/>
             
             <label>Tipo</label>
-            <input type="text" 
+            <input type="text"
+                   class="form-control"
                    name="tiposus"
                    required="true"
                    th:field="*{tiposus}"/>
 
             <br>
-            <hr>
-            <input type="submit" value="Guardar" />
-            <hr>            
-        </form> 
             
+            <input type="submit" value="Guardar" class="btn btn-warning"/>
+                        
+        </form> 
+                    
+           </div> 
+                         </div>
+                    </div>
+                    </div>
+            </div>
+         <br>
+        <br>   
+            <br>
+                <br>
+                    <br>
+        <br>   
+            <br>
+                <br>
+                     <br>
+               
+                    <hr>
+        <div class="container-fluid">
+        
+        <a th:href="@{/suscripcion/listado}" class="btn btn-primary">Regresar</a>
+     
+         </div>
+       
     </section>
     
-    
-    
-    
     <footer th:replace="~{layout/plantilla :: footer}"/>
+    
+    
 </body>
 </html>
