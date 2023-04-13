@@ -4,15 +4,178 @@
         <title>Spectrum</title>
         <meta charset="UTF-8"/>
         <link href="/css/styles.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+        <link href="/css/styles.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <header th:replace="~{layout/plantilla :: header}"/>
-        
-        <p>Informacion de servicios de mobile/celular</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
+                     <h1 style="text-align: right;background-color: #002A4A;color:gainsboro; font-size: 40%;" >  
+                 <br>
+               <div class="container-fluid"> 
+               <p>
+                <a button class="btn btn-primary" th:href="@{/}" style="color:white;">Volver al inicio</a>
+            </p>
+                   </div>   
+           </h1>
+        <header th:replace="~{layout/plantilla :: header}" />
+     
+  <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light static-top " sec:authorize="!isAuthenticated()">
+				 
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="navbar-toggler-icon"></span>
+				</button> <a class="navbar-brand" th:href="@{/login}">Iniciar sesión</a>
+                                
+                                
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="navbar-nav">
+                                            <li class="nav-item">
+							 <a class="nav-link" th:href="@{/info/internet}">Internet</a>
+						</li>
+                                            <li class="nav-item">
+							 <a class="nav-link" th:href="@{/info/tv}">Televisión</a>
+						</li>
+                                            <li class="nav-item">
+							 <a class="nav-link" th:href="@{/info/voice}">Telefonía Residencial</a>
+						</li>
+						<li class="nav-item active">
+                                                     <li class="nav-item">
+							 <a class="nav-link" th:href="@{/info/mobile}">Telefonía Móvil</a>
+						</li>
+							 <a class="nav-link" th:href="@{/info/contactanos}">Contáctanos <span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item">
+							 <a class="nav-link" th:href="@{/info/sobrenosotros}">Sobre nosotros</a>
+						</li>
+					</ul>
+
+				</div>
+
+			</nav>
+
+		</div>
+	</div>
+      </div>
+
+        <div class="container-fluid" style="background-color:#050055; color:whitesmoke">
+
+	<div class="row">
+		<div class="col-md-12">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6"   >
+                                        <br>
+                        <br>
+                            <br>             
+         <h2>Lo mejor de la TV Digital y HD a tu alcance</h2>
+
+                                <br>
+                                    <br>
+                                        <br>
+                                             <br>
+			<div class="jumbotron">
+				<h2>
+					Conexión y cobertura para una comunicación total
+				</h2>
+				<p>
+					Puedes ahorrar hasta un 60% en tu factura con el proveedor de servicio móvil de más rápido crecimiento en el país. Trae tu propio teléfono o compra un nuevo dispositivo y ahorra a lo grande.
+
+				</p>
+
+			</div>
+			
+		</div>
+            
+		<div class="col-md-6" >
+                <img style="width:60rem; " alt="Bootstrap Image Preview" src="https://www.10wallpaper.com/wallpaper/1366x768/1701/Samsung_Cell_phone_communication-Brand_HD_Wallpaper_1366x768.jpg" />
+		</div>
+                
+	</div>
+</div>
+  
+           <div style="background-color:#b8d4e5">
+               <br>
+            <br>    
+            <div class="container text-center">
+                <div class="row align-items-end">
+                    <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <img src="https://t4.ftcdn.net/jpg/05/80/78/31/240_F_580783127_IARzd4rtlj3pQq35BxQzGOfPe3n5dlxV.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title"th:text="#{tv.pl2}" >Card title</h5>
+                                    <p class="card-text" th:text="#{tv.precio1}"> </p>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"th:text="#{tv.hd}">An item</li>
+                                    <li class="list-group-item"th:text="#{tv.sd}" >A second item</li>
+                                    <li class="list-group-item" th:text="#{tv.music}">A third item</li>
+                                </ul>
+                                <div class="card-body">
+                                    <a href="#" class="card-link">Obtener</a>
+                                    <a href="#" class="card-link">Contactar</a>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <img src="https://t3.ftcdn.net/jpg/04/17/79/86/240_F_417798608_42fxmQZwwNCWqLQsUnrTo7pVinXCSjPN.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title"th:text="#{tv.pl1}" >Card title</h5>
+                                    <p class="card-text" th:text="#{tv.precio2}"> </p>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"th:text="#{tv.hd}">An item</li>
+                                    <li class="list-group-item"th:text="#{tv.sd}" >A second item</li>
+                                    <li class="list-group-item" th:text="#{tv.music}">A third item</li>
+                                </ul>
+                                <div class="card-body">
+                                    <a href="#" class="card-link">Obtener</a>
+                                    <a href="#" class="card-link">Contactar</a>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <img src="https://t4.ftcdn.net/jpg/04/10/45/51/240_F_410455186_BPeQeRCxeW7zL3HMEkE2lCZySxNiUvhV.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title"th:text="#{tv.pl3}" >Card title</h5>
+                                    <p class="card-text" th:text="#{tv.precio3}"> </p>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"th:text="#{tv.st}">An item</li>
+                                    <li class="list-group-item"th:text="#{tv.stsd}" >A second item</li>
+                                    <li class="list-group-item" th:text="#{tv.music}">A third item</li>
+                                </ul>
+                                <div class="card-body">
+                                    <a href="#" class="card-link">Obtener</a>
+                                    <a href="#" class="card-link">Contactar</a>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <br><br>
+           </div>
+          
+    <div class="container-fluid" style="background-color:#050055;">
+	<div class="row">
+		<div class="col-md-12">
+			<blockquote class="blockquote">
+				
+                            <div class="mb-0" th:text="#{tv.nota}" style="color:#b8d4e5"></div>
+                            <br>
+				<footer class="blockquote-footer">
+					 <cite>Se aplican restricciones</cite>
+				</footer>
+			</blockquote>  
+                </div>
+
         
         <footer th:replace="~{layout/plantilla :: footer}"/>
     </body>

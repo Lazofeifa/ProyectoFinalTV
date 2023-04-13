@@ -12,18 +12,102 @@
 
     </head>
     <body >
-        <header th:replace="~{layout/plantilla :: header}"/>
-        <hr><!-- comment -->
-            <center>
-                <h1 th:text="#{tv.ti}"></h1>         
-               
-               
-            </center><!-- comment -->
+                             <h1 style="text-align: right;background-color: #002A4A;color:gainsboro; font-size: 40%;" >  
+                 <br>
+               <div class="container-fluid"> 
+               <p>
+                <a button class="btn btn-primary" th:href="@{/}" style="color:white;">Volver al inicio</a>
+            </p>
+                   </div>   
+           </h1>
+        <header th:replace="~{layout/plantilla :: header}" />
+     
+  <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light static-top " sec:authorize="!isAuthenticated()">
+				 
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="navbar-toggler-icon"></span>
+				</button> <a class="navbar-brand" th:href="@{/login}">Iniciar sesión</a>
+                                
+                                
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="navbar-nav">
+                                            <li class="nav-item">
+							 <a class="nav-link" th:href="@{/info/internet}">Internet</a>
+						</li>
+                                            <li class="nav-item">
+							 <a class="nav-link" th:href="@{/info/tv}">Televisión</a>
+						</li>
+                                            <li class="nav-item">
+							 <a class="nav-link" th:href="@{/info/voice}">Telefonía Residencial</a>
+						</li>
+						<li class="nav-item active">
+                                                     <li class="nav-item">
+							 <a class="nav-link" th:href="@{/info/mobile}">Telefonía Móvil</a>
+						</li>
+							 <a class="nav-link" th:href="@{/info/contactanos}">Contáctanos <span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item">
+							 <a class="nav-link" th:href="@{/info/sobrenosotros}">Sobre nosotros</a>
+						</li>
+					</ul>
+
+				</div>
+
+			</nav>
+
+		</div>
+	</div>
+      </div>
+        
+
+    <div class="container-fluid" style="background-color:#434f73; color:whitesmoke">
+
+	<div class="row">
+		<div class="col-md-12">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6"   >
+                                        <br>
+                        <br>
+                            <br>             
+         <h1 th:text="#{tv.ti}"  ></h1>
+
+                                <br>
+                                    <br>
+                                        <br>
+                                             <br>
+			<div class="jumbotron">
+				<h2>
+					Lo mejor de la TV Digital y HD a tu alcance
+				</h2>
+				<p>
+					La mejor experiencia de entretenimiento.
+
+				</p>
+
+			</div>
+			
+		</div>
+            
+		<div class="col-md-6" >
+                <img style="width:60rem; " alt="Bootstrap Image Preview" src="https://static.bhphotovideo.com/explora/sites/default/files/120_.png" />
+		</div>
+                
+	</div>
+</div>
+  
+           <div style="background-color:#b8d4e5">
+               <br>
+            <br>    
             <div class="container text-center">
                 <div class="row align-items-end">
                     <div class="col">
                         <div class="card" style="width: 18rem;">
-                            <img src="https://otitelecom.org/wp-content/uploads/2017/05/18-lun-01-cp-copia-2.jpg" class="card-img-top" alt="...">
+                            <img src="https://t4.ftcdn.net/jpg/05/70/20/13/240_F_570201384_xca1mRX0z88UwVaRpgLpqFtjbgmGnSuO.jpg" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title"th:text="#{tv.pl2}" >Card title</h5>
                                     <p class="card-text" th:text="#{tv.precio1}"> </p>
@@ -41,7 +125,7 @@
                     </div>
                     <div class="col">
                         <div class="card" style="width: 18rem;">
-                            <img src="https://otitelecom.org/wp-content/uploads/2017/05/18-lun-01-cp-copia-2.jpg" class="card-img-top" alt="...">
+                            <img src="https://as2.ftcdn.net/v2/jpg/05/70/54/63/1000_F_570546370_oDAIIzyX283tolHMP0m73KlBZD6eQsBI.jpg" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title"th:text="#{tv.pl1}" >Card title</h5>
                                     <p class="card-text" th:text="#{tv.precio2}"> </p>
@@ -59,7 +143,7 @@
                     </div>
                     <div class="col">
                         <div class="card" style="width: 18rem;">
-                            <img src="https://otitelecom.org/wp-content/uploads/2017/05/18-lun-01-cp-copia-2.jpg" class="card-img-top" alt="...">
+                            <img src="https://as1.ftcdn.net/v2/jpg/05/70/54/64/1000_F_570546430_RUN3dUAcNPyBousu40ZH8IDiWA8fR9G6.jpg" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title"th:text="#{tv.pl3}" >Card title</h5>
                                     <p class="card-text" th:text="#{tv.precio3}"> </p>
@@ -77,8 +161,21 @@
                     </div>
                 </div>
             </div>
-<div class="container-lg" th:text="#{tv.nota}"></div>
-       
+                <br><br>
+           </div>
+          
+    <div class="container-fluid" style="background-color:#434f73;">
+	<div class="row">
+		<div class="col-md-12">
+			<blockquote class="blockquote">
+				
+                            <div class="mb-0" th:text="#{tv.nota}" style="color:#b8d4e5"></div>
+                            <br>
+				<footer class="blockquote-footer">
+					 <cite>Se aplican restricciones</cite>
+				</footer>
+			</blockquote>  
+                </div>
 
             <footer th:replace="~{layout/plantilla :: footer}"/>
     </body>

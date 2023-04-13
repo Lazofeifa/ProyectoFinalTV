@@ -18,11 +18,14 @@
             <nav class="nav">
             </nav>
                            
-            <h1 style="text-align: right;background-color: #002A4A;color:gainsboro; font-size: 80%;" sec:authorize="isAuthenticated()">
-                <i></i>Usuario: <span sec:authentication="name"></span>
+            <h1 style="text-align:right ;background-color: #002A4A;color:gainsboro; font-size: 80%; " sec:authorize="isAuthenticated()">
+ 
+                </div><i></i>Usuario: <span sec:authentication="name"></span>
+                <div class="container-fluid">
                 <form method="post" th:action="@{/logout}">
-                    <button class="btn btn-primary" th:text="#{login.signout}"><i ></i>Salir</button>                
-                </form>
+                    <button class="btn btn-primary" th:text="#{login.signout}"><i ></i>Salir</button> 
+                    </div>
+             
             </h1>
             <div class="container-fluid">   
             <!-- Logo para regresar al index -->

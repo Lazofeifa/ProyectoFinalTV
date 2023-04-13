@@ -8,80 +8,183 @@
         <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
         <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
         <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-        
         <link href="/css/styles.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <header th:replace="~{layout/plantilla :: header}"/>
-          <hr>
-          <center>
-        <h1 th:text="#{internet.ti}"></h1>
-    </center>
-        </hr>
+        
+                     <h1 style="text-align: right;background-color: #002A4A;color:gainsboro; font-size: 40%;" >  
+                 <br>
+               <div class="container-fluid"> 
+               <p>
+                <a button class="btn btn-primary" th:href="@{/}" style="color:white;">Volver al inicio</a>
+            </p>
+                   </div>   
+           </h1>
+        <header th:replace="~{layout/plantilla :: header}" />
+     
+  <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light static-top " sec:authorize="!isAuthenticated()">
+				 
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="navbar-toggler-icon"></span>
+				</button> <a class="navbar-brand" th:href="@{/login}">Iniciar sesión</a>
+                                
+                                
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="navbar-nav">
+                                            <li class="nav-item">
+							 <a class="nav-link" th:href="@{/info/internet}">Internet</a>
+						</li>
+                                            <li class="nav-item">
+							 <a class="nav-link" th:href="@{/info/tv}">Televisión</a>
+						</li>
+                                            <li class="nav-item">
+							 <a class="nav-link" th:href="@{/info/voice}">Telefonía Residencial</a>
+						</li>
+						<li class="nav-item active">
+                                                     <li class="nav-item">
+							 <a class="nav-link" th:href="@{/info/mobile}">Telefonía Móvil</a>
+						</li>
+							 <a class="nav-link" th:href="@{/info/contactanos}">Contáctanos <span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item">
+							 <a class="nav-link" th:href="@{/info/sobrenosotros}">Sobre nosotros</a>
+						</li>
+					</ul>
+
+				</div>
+
+			</nav>
+
+		</div>
+	</div>
+      </div>
+      
+      
+ 
+      
+    <div class="container-fluid" style="background-color:#002A4A">
+
+	<div class="row">
+		<div class="col-md-12">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6"   >
+			<img style="width:55rem; " alt="Bootstrap Image Preview" src="https://img.freepik.com/free-photo/couple-using-laptop-while-couch-home-together_23-2148793531.jpg?w=1380&t=st=1681347434~exp=1681348034~hmac=a647beb79a22833e795476841b386ca45610e66345de3150ed4a6e4ea2fe7a04" />
+		</div>
+            
+		<div class="col-md-6" style="color:whitesmoke">
+                     <br>
+                        <br>
+                            <br>             
+         <h1 th:text="#{internet.ti}"  ></h1>
+
+                                <br>
+                                    <br>
+                                        <br>
+                                             <br>
+			<div class="jumbotron">
+				<h2>
+					Disfrutá Internet Hogar
+				</h2>
+				<p>
+					Disfruta de velocidades de Internet rápidas, WiFi Avanzado con seguridad de última generación y servicio móvil ilimitado, todo funcionando a la vez sin problemas.
+				</p>
+
+			</div>
+		</div>
+                
+	</div>
+</div>          
+              
+
                        
-               
-          
-            <div class="container text-center">
+        <div style="background-color:#b8d4e5">  
+                          <br>       
+             
+            <div class="container text-center" >
                 <div class="row align-items-end">
                     <div class="col">
                         <div class="card" style="width: 18rem;">
-                            <img src=https://previews.123rf.com/images/madmaxer/madmaxer1304/madmaxer130400119/19375387-3d-ilustraci%C3%B3n-de-la-mano-del-cursor-apunta-a-la-internet-global.jpg class="card-img-top" alt="...">
+                            <img src=https://fibnet.in/wp-content/uploads/2022/05/Download-free-psd-_-image-of-Wireless-internet-pink-icon-psd-for-social-media-app-neon-style-by-Ning-about-wifi-neon-icons-neon-app-icons-neon-and-wi-fi-2873648.jpg class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title"th:text="#{internet.pl30}" >Card title</h5>
                                     <p class="card-text" th:text="#{internet.precio1}"> </p>
                                 </div>
                           
                                 <div class="card-body">
-                                    <a href="#" class="card-link">Obtener</a>
-                                    <a href="#" class="card-link">Contactar</a>
+                                    <a href="#" class="card-link">Solicitar</a>
+                                    <a href="#" class="card-link">Cotizar</a>
                                 </div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="card" style="width: 18rem;">
-                            <img src=https://previews.123rf.com/images/madmaxer/madmaxer1304/madmaxer130400119/19375387-3d-ilustraci%C3%B3n-de-la-mano-del-cursor-apunta-a-la-internet-global.jpg class="card-img-top" alt="...">
+                            <img src=https://img.freepik.com/free-vector/internet-security-communication-technology-neon-icon-with-lock_53876-119518.jpg?w=2000 class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title"th:text="#{internet.pl100}" >Card title</h5>
                                     <p class="card-text" th:text="#{internet.precio3}"> </p>
                                 </div>
                               
                                 <div class="card-body">
-                                    <a href="#" class="card-link">Obtener</a>
-                                    <a href="#" class="card-link">Contactar</a>
+                                    <a href="#" class="card-link">Solicitar</a>
+                                    <a href="#" class="card-link">Cotizar</a>
                                 </div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="card" style="width: 18rem;">
-                            <img src=https://previews.123rf.com/images/madmaxer/madmaxer1304/madmaxer130400119/19375387-3d-ilustraci%C3%B3n-de-la-mano-del-cursor-apunta-a-la-internet-global.jpg class="card-img-top" alt="...">
+                            <img src=https://fibnet.in/wp-content/uploads/2022/05/Download-free-psd-_-image-of-Wireless-internet-pink-icon-psd-for-social-media-app-neon-style-by-Ning-about-wifi-neon-icons-neon-app-icons-neon-and-wi-fi-2873648.jpg class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title"th:text="#{internet.pl500}" >Card title</h5>
                                     <p class="card-text" th:text="#{internet.precio2}"> </p>
                                 </div>
                              
                                 <div class="card-body">
-                                    <a href="#" class="card-link">Obtener</a>
-                                    <a href="#" class="card-link">Contactar</a>
+                                    <a href="#" class="card-link">Solicitar</a>
+                                    <a href="#" class="card-link">Cotizar</a>
                                 </div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="card" style="width: 18rem;">
-                            <img src=https://previews.123rf.com/images/madmaxer/madmaxer1304/madmaxer130400119/19375387-3d-ilustraci%C3%B3n-de-la-mano-del-cursor-apunta-a-la-internet-global.jpg class="card-img-top" alt="...">
+                            <img src=https://img.freepik.com/free-vector/internet-security-communication-technology-neon-icon-with-lock_53876-119518.jpg?w=2000 class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title"th:text="#{internet.pl1000}" >Card title</h5>
                                     <p class="card-text" th:text="#{internet.precio4}"> </p>
                                 </div>
                               
                                 <div class="card-body">
-                                    <a href="#" class="card-link">Obtener</a>
-                                    <a href="#" class="card-link">Contactar</a>
+                                    <a href="#" class="card-link">Solicitar</a>
+                                    <a href="#" class="card-link">Cotizar</a>
                                 </div>
                         </div>
                     </div>
                 </div>
             </div>
-<div class="container-lg" th:text="#{internet.nota}"></div>
+  <br>       
+        
+            </div>
+        
+        <div class="container-fluid" style="background-color:#002A4A;">
+	<div class="row">
+		<div class="col-md-12">
+			<blockquote class="blockquote">
+				
+                            <div class="mb-0" th:text="#{internet.nota}" style="color:#b8d4e5"></div>
+                            <br>
+				<footer class="blockquote-footer">
+					 <cite>Se aplican restricciones</cite>
+				</footer>
+			</blockquote>
+		</div>
+	</div>
+</div>
+        
+
        
         <footer th:replace="layout/plantilla :: footer"/>
     </body>
