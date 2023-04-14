@@ -12,6 +12,7 @@
 </head>
 <body>
     <header th:replace="~{layout/plantilla :: header}"/>
+    
     <section th:fragment="listadoSuscripciones" id="suscripciones">
     <div class="container-fluid"> 
         
@@ -48,12 +49,7 @@
             <div th:if="${suscripciones ==null or suscripciones.empty}">
                 <p > No hay suscripciones que mostrar</p>
             </div>
-            
-        </div>
-        </div>
-                   </div>
-            </div>
-        </div>
+
 
     </section>
     
@@ -74,36 +70,16 @@
               th:object="${suscripcion}">
             <input type="hidden" name="idSuscripcion" 
                    th:field="*{idSuscripcion}"/>
-            
+
             <label>Tipo</label>
             <input type="text"
                    class="form-control"
                    name="tiposus"
                    required="true"
                    th:field="*{tiposus}"/>
-
             <br>
-            
-            <input type="submit" value="Guardar" class="btn btn-warning"/>
-                        
+            <input type="submit" value="Guardar" class="btn btn-warning"/>         
         </form> 
-                    
-           </div> 
-                         </div>
-                    </div>
-                    </div>
-            </div>
-         <br>
-        <br>   
-            <br>
-                <br>
-                    <br>
-        <br>   
-            <br>
-                <br>
-                     <br>
-               
-                    <hr>
         <div class="container-fluid">
         
         <a th:href="@{/suscripcion/listado}" class="btn btn-primary">Regresar</a>

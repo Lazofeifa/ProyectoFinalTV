@@ -17,16 +17,24 @@
         <header th:fragment="header">
             <nav class="nav">
             </nav>
-                           
-            <h1 style="text-align:right ;background-color: #002A4A;color:gainsboro; font-size: 80%; " sec:authorize="isAuthenticated()">
- 
-                </div><i></i>Usuario: <span sec:authentication="name"></span>
+            
+            <div class="row">
+		<div class="col-md-12">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light static-top " sec:authorize="!isAuthenticated()">
+				 
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="navbar-toggler-icon"></span>
+				</button> <a class="navbar-brand" th:href="@{/login}">Iniciar sesión</a>
+			</nav>
+		</div>
+            </div>
+            <h1 style="text-align:right ;background-color: #002A4A;color:gainsboro; font-size: 80%; " sec:authorize="isAuthenticated()">Usuario: <span sec:authentication="name"></span>
                 <div class="container-fluid">
                 <form method="post" th:action="@{/logout}">
                     <button class="btn btn-primary" th:text="#{login.signout}"><i ></i>Salir</button> 
-                    </div>
-             
+                </div>
             </h1>
+            
             <div class="container-fluid">   
             <!-- Logo para regresar al index -->
                 <a th:href="@{/}"  class="logo nav-link" >

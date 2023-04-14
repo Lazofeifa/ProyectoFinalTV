@@ -35,15 +35,17 @@ public class SecurityConfig {
                         "/webjars/**").permitAll()
                 .requestMatchers(
                         "/producto/**",
-                        "/comentario/**",
                         "/suscripcion/**",
                         "/cliente/**").hasAnyRole("ADMIN", "VENDEDOR")
                 .requestMatchers(
-                        "/empty/**").hasRole("ADMIN")
+                        "/comentario/**").hasRole("ADMIN")
                 )
                 .formLogin((form) -> form
-                .loginPage("/login")
-                .permitAll())
+                    .loginPage("/login")
+                    .permitAll()
+                    .defaultSuccessUrl("/index", true)
+                )
+                    
                 .logout((logout) -> logout.permitAll())
                 .exceptionHandling().accessDeniedPage("/errores/403");
         return http.build();

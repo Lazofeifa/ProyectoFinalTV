@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
-    <head>
+    <head th:replace="~{layout/plantilla :: head}">
         <title>Spectrum</title>
         <meta charset="UTF-8"/>
         <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
@@ -11,8 +11,9 @@
     </head>
     <body>
         <header th:replace="~{layout/plantilla :: header}"/>
+        
         <section th:replace="~{suscripcion/fragmentos :: listadoSuscripciones}"/> 
         
+        
     </body>
-    
 </html>
