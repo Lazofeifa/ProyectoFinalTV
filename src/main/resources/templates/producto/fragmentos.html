@@ -18,13 +18,13 @@
     <div class="container-fluid">
         <div class="contenido">
             
-            <h2>Listado de Productos</h2>
+            <h2 th:text="#{articulo.lista}">Listado de servicio</h2>
        				<dd>
-					En este apartado puede agregar, modificar o eliminar productos
-				</dd>
+					<!--En este apartado puede agregar, modificar o eliminar productos
+				--></dd>
             <hr>
 
-            <a type="button" class="btn btn-primary" th:href="@{/producto/nuevo}">Nuevo Producto</a>
+            <a type="button" class="btn btn-primary" th:href="@{/producto/nuevo}" th:text="#{articulo.nuevo}">Nuevo Producto</a>
             <div th:if="${productos !=null and !productos.empty}">
                 <table border="0">
                     <thead>
@@ -42,19 +42,19 @@
 				<thead class="table-active">
                                    
 					<tr>		
-						<th>Descripción</th>
-						<th>Precio</th>
-						<th>Modificar</th>
-                                                <th>Eliminar</th>
-					</tr>
+						<th th:text="#{articulo.descripcion}">Descripción</th>
+						<th th:text="#{articulo.precio}">Precio</th>
+					<!--	<th th:text="#{articulo.}">Modificar</th>
+                                                 <th th:text="#{articulo.nuevo}">Eliminar</th>
+					--></tr>
 				</thead>
                             
 				<tbody>
                         <tr th:each="producto : ${productos}">
                         <td th:text="${producto.descripcion}"></td> 
                         <td th:text="${producto.precio}"></td>
-                        <td><a type="button" class="btn btn-warning" th:href="@{/producto/modificar/} + ${producto.idProducto}">Modificar</a></td>
-                        <td><a type="button" class="btn btn-danger" th:href="@{/producto/eliminar/} + ${producto.idProducto}">Eliminar</a></td>
+                        <td><a type="button" class="btn btn-warning" th:href="@{/producto/modificar/} + ${producto.idProducto}" th:text="#{accion.modificar}">Modificar</a></td>
+                        <td><a type="button" class="btn btn-danger" th:href="@{/producto/eliminar/} + ${producto.idProducto}" th:text="#{accion.eliminar}">Eliminar</a></td>
                         
                         </tr>
 				</tbody>
@@ -67,9 +67,9 @@
     
     <section th:fragment="modificarProductos">
         <div class="container-fluid">
-        <h2>Productos</h2>
+        <h2 th:text="#{articulo.articulo}" >Productos</h2>
         	<dd>
-					Ingrese información del producto.
+					
 				</dd>
         <hr>
        
@@ -83,7 +83,7 @@
             <input type="hidden" name="idProducto" 
                    th:field="*{idProducto}"/>
             
-            <label >Detalle</label>
+            <label th:text="#{articulo.descripcion}" >Detalle</label>
             <input type="text" 
                    class="form-control"
                    name="descripcion"
@@ -92,7 +92,7 @@
             <br>
             
             
-            <label >Precio</label>
+            <label th:text="#{articulo.precio}">Precio</label>
             <input type="text" 
                    class="form-control"
                    name="precio"
@@ -100,8 +100,8 @@
                    th:field="*{precio}"/>
             <br>    
                 
-            
-            <input type="submit" value="Guardar" class="btn btn-warning" />
+              <a th:href="@{/producto/listado}" class="btn btn-primary" th:text="#{accion.regresar}">Regresar</a>
+             <button class="btn btn-primary" type="submit" th:text="#{accion.guardar}">Guardar</button>
                        
         </form>
         </div>
@@ -116,7 +116,7 @@
             <br>
                 <br>
             <hr>
-            <a th:href="@{/producto/listado}" class="btn btn-primary">Regresar</a>
+          
         
             </div>
     </section>

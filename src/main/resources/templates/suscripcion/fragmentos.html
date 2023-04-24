@@ -17,12 +17,12 @@
     <div class="container-fluid"> 
         
         <div class="contenido">
-            <h2>Listado de Suscripciones</h2>
+            <h2 th:text="#{susc.lista}" >Listado de Suscripciones</h2>
                       <dd>
-					En este apartado puede agregar, modificar o eliminar suscripciones.
-				</dd>
+					<!--En este apartado puede agregar, modificar o eliminar suscripciones.
+				--></dd>
             <hr>
-            <a type="button" class="btn btn-primary" th:href="@{/suscripcion/nuevo}">Nueva Suscripcion</a>
+            <a type="button" class="btn btn-primary" th:href="@{/suscripcion/nuevo}" th:text="#{susc.nueva}">Nueva Suscripcion</a>
             <div th:if="${suscripciones !=null and !suscripciones.empty}">
                <hr>
                  <div class="container-fluid">
@@ -30,10 +30,10 @@
 		<div class="col-md-12">
 			<table class="table">
 				<thead class="table-active">
-                                    <th >Tipo</th>
-                                    <th >Modificar</th>
+                                    <th th:text="#{susc.tipo}" >Tipo</th>
+                             <!--       <th >Modificar</th>
                                     <th >Eliminar</th>
-                                    
+                                    -->
 		
 					</tr>
 				</thead>
@@ -41,8 +41,8 @@
 				<tbody>
                          <tr th:each="suscripcion : ${suscripciones}">
                         <td th:text="${suscripcion.tiposus}"></td> 
-                        <td><a <a type="button" class="btn btn-danger" th:href="@{/suscripcion/modificar/} + ${suscripcion.idSuscripcion}">Modificar</a></td>
-                        <td><a type="button" class="btn btn-warning"th:href="@{/suscripcion/eliminar/} + ${suscripcion.idSuscripcion}">Eliminar</a></td>
+                        <td><a <a type="button" class="btn btn-danger" th:href="@{/suscripcion/modificar/} + ${suscripcion.idSuscripcion}" th:text="#{accion.modificar}">Modificar</a></td>
+                        <td><a type="button" class="btn btn-warning"th:href="@{/suscripcion/eliminar/} + ${suscripcion.idSuscripcion}"th:text="#{accion.eliminar}">Eliminar</a></td>
                                                    </tr>
             </div>
 
@@ -57,8 +57,8 @@
         <div class="container-fluid">
        <h2>Datos de Suscripcion</h2>
             <dd>
-					Ingrese información de suscripción.
-				</dd>
+			<!--		Ingrese información de suscripción.
+				--></dd>
        
        <hr>
         	<div class="row">
@@ -71,18 +71,21 @@
             <input type="hidden" name="idSuscripcion" 
                    th:field="*{idSuscripcion}"/>
 
-            <label>Tipo</label>
+            <label th:text="#{susc.tipo}"  >Tipo</label>
             <input type="text"
                    class="form-control"
                    name="tiposus"
                    required="true"
                    th:field="*{tiposus}"/>
             <br>
-            <input type="submit" value="Guardar" class="btn btn-warning"/>         
+                 <a th:href="@{/suscripcion/listado}" class="btn btn-warning">[[#{accion.regresar}]]</a>
+            <button type="submit" class="btn btn-success btn-block">
+                                <i class="fas fa-check"></i> [[#{accion.guardar}]]
+                            </button>    
         </form> 
         <div class="container-fluid">
         
-        <a th:href="@{/suscripcion/listado}" class="btn btn-primary">Regresar</a>
+       
      
          </div>
        

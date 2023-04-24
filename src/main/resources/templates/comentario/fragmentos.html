@@ -17,12 +17,12 @@
     <section th:fragment="listadoComentarios" id="comentarios">
         <div class="container-fluid">
           <div class="contenido">
-            <h2>Comentarios</h2>
+            <h2 th:text="#{plantilla.consultas}" >Comentarios</h2>
             <dd>
-		En este apartado puede agregar, modificar o eliminar comentarios.
+		
             </dd>
             <hr>
-            <a type="button" class="btn btn-primary" th:href="@{/comentario/nuevo}">Nuevo comentario</a>
+            <a type="button" class="btn btn-primary" th:href="@{/comentario/nuevo}" th:text="#{plantilla.consultas}">Nuevo comentario</a>
             <hr>
             <div th:if="${comentarios !=null and !comentarios.empty}">
                 <table border="0">
@@ -42,10 +42,9 @@
 				<thead class="table-active">
                                    
 	                        <tr>
-                            <th >Detalle</th>
-                            <th >Producto</th>
-                            <th >Modificar</th>
-                            <th >Eliminar</th>
+                            <th th:text="#{com.com}">Detalle</th>
+                            <th th:text="#{articulo.articulo}">Producto</th>
+                     
 
                         </tr>
 				</thead>
@@ -54,8 +53,8 @@
                         <tr th:each="comentario : ${comentarios}">
                         <td th:text="${comentario.detalle}"></td> 
                         <td th:text="${comentario.producto.descripcion}"></td> 
-                        <td><a type="button" class="btn btn-warning" th:href="@{/comentario/modificar/} + ${comentario.idComentario}">Modificar</a></td>
-                        <td><a type="button" class="btn btn-danger" th:href="@{/comentario/eliminar/} + ${comentario.idComentario}">Eliminar</a></td>
+                        <td><a type="button" class="btn btn-warning" th:href="@{/comentario/modificar/} + ${comentario.idComentario}"th:text="#{accion.modificar}">Modificar</a></td>
+                        <td><a type="button" class="btn btn-danger" th:href="@{/comentario/eliminar/} + ${comentario.idComentario}"th:text="#{accion.eliminar}">Eliminar</a></td>
                   
                         </tr>
 				</tbody>
@@ -64,7 +63,7 @@
 	</div>
 
             <div th:if="${comentarios ==null or comentarios.empty}">
-                <p > No hay clientes que mostrar</p>
+                <p  th:text="#{aplicacion.data}" > No hay clientes que mostrar</p>
             </div>
         </div>  
             </div>
@@ -74,9 +73,9 @@
     
     <section th:fragment="modificarComentarios">
         <div class="container-fluid">
-        <h2>Comentarios</h2>
+        <h2 th:text="#{com.nuevo}" >Comentarios</h2>
         <dd>
-					Ingrese comentarios.
+					
 				</dd>
         <hr>
              
@@ -90,7 +89,7 @@
             <input type="hidden" name="idComentario" 
                    th:field="*{idComentario}"/>
             
-            <label >Detalle</label>
+            <label th:text="#{com.com}" >Detalle</label>
             <input type="text" 
                    class="form-control"
                    name="detalle"
@@ -99,7 +98,7 @@
             <br>
             
             
-            <label >Producto</label>
+            <label th:text="#{articulo.articulo}" >Producto</label>
             <input type="text" 
                    class="form-control"
                    name="descripcion"
@@ -107,8 +106,10 @@
                    th:field="*{producto.descripcion}"/>
             <br>    
                 
-            
-            <input type="submit" value="Guardar" class="btn btn-warning" />
+              <a th:href="@{/suscripcion/listado}" class="btn btn-warning">[[#{accion.regresar}]]</a>
+            <button type="submit" class="btn btn-success btn-block">
+                                <i class="fas fa-check"></i> [[#{accion.guardar}]]
+                            </button>    
                         
         </form>
             
@@ -122,7 +123,7 @@
         <br>
             <br><br><br>
                         <div class="container-fluid">
-        <a th:href="@{/comentario/listado}" class="btn btn-primary">Regresar</a>  
+      
         </div>
     </section>
           

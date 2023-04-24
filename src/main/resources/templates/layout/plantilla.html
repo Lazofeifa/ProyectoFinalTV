@@ -24,11 +24,11 @@
 				 
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 					<span class="navbar-toggler-icon"></span>
-				</button> <a class="navbar-brand" th:href="@{/login}">Iniciar sesión</a>
+				</button> <a class="navbar-brand" th:href="@{/login}" th:text="#{login.login}">Iniciar sesión</a>
 			</nav>
 		</div>
             </div>
-            <h1 style="text-align:right ;background-color: #002A4A;color:gainsboro; font-size: 80%; " sec:authorize="isAuthenticated()">Usuario: <span sec:authentication="name"></span>
+            <h1 style="text-align:right ;background-color: #002A4A;color:gainsboro; font-size: 80%; " sec:authorize="isAuthenticated()" >[[#{login.username}]]: <span sec:authentication="name"></span>
                 <div class="container-fluid">
                 <form method="post" th:action="@{/logout}">
                     <button class="btn btn-primary" th:text="#{login.signout}"><i ></i>Salir</button> 
@@ -64,7 +64,7 @@
                                 
                             
 				<li class="nav-item dropdown ml-md-auto">
-					 <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown">Dropdown link</a>
+					 <a class="nav-link dropdown-toggle" th:href="@{/login}" id="navbarDropdownMenuLink" data-toggle="dropdown">Ver En linea</a>
 					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
 						 <a class="dropdown-item" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a>
 						<div class="dropdown-divider">
